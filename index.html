@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المحاضرة الرابعة عشرة | Final Project + Review | Sunshine T Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #4A7C59;
+            --primary-dark: #2D5F3F;
+            --primary-light: #7BA889;
+            --primary-soft: #D4E5D8;
+            --secondary: #D4A574;
+            --secondary-dark: #B8895A;
+            --secondary-light: #E8C9A0;
+            --bg-main: #FAF7F2;
+            --bg-cream: #F5EFE6;
+            --bg-card: #FFFFFF;
+            --bg-soft: #EDE5D8;
+            --bg-code: #F9F6F0;
+            --text-dark: #2C1810;
+            --text-body: #4A3728;
+            --text-muted: #6B5744;
+            --text-light: #8B7356;
+            --border: #E5DCC8;
+            --border-soft: #EDE5D8;
+            --success: #5B8C5A;
+            --success-bg: #E3EDDF;
+            --info: #5B8BA0;
+            --info-bg: #DEE8EC;
+            --warning: #C89B6C;
+            --warning-bg: #F0E4D4;
+            --danger: #B85C5C;
+            --danger-bg: #F0DCDC;
+            --purple: #8B7BA8;
+            --purple-bg: #E5DFED;
+            --gold: #B8860B;
+            --gold-dark: #8B6508;
+            --gold-light: #F4E4BC;
+            --gold-soft: #FFF8E7;
+            --gold-bright: #D4A017;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-body);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        header {
+            background: linear-gradient(135deg, #FAF7F2 0%, #EDE5D8 100%);
+            border-bottom: 3px solid var(--gold);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(184, 134, 11, 0.1);
+        }
+
+        .header-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+
+        .logo { display: flex; align-items: center; gap: 12px; font-size: 1.4rem; font-weight: 800; color: var(--primary-dark); }
+
+        .logo-icon {
+            width: 44px; height: 44px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 900; font-size: 1.3rem;
+            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+        }
+
+        .lecture-badge {
+            background: var(--gold-light);
+            border: 2px solid var(--gold);
+            color: var(--gold-dark);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .hero {
+            padding: 80px 40px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--gold-light) 0%, #D4E5D8 50%, #E8C9A0 100%);
+            border: 2px solid var(--gold);
+            border-radius: 24px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(184, 134, 11, 0.15);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(184, 134, 11, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 18px;
+            color: var(--text-dark);
+            line-height: 1.3;
+            position: relative;
+        }
+
+        .hero h1 span { color: var(--gold-dark); }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-body);
+            max-width: 750px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero .graduation-emoji {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        section { margin: 60px 0; }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--border);
+        }
+
+        .section-title .title-icon {
+            width: 50px; height: 50px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--primary) 100%);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            color: white;
+            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.25);
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-soft);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(74, 124, 89, 0.04);
+        }
+
+        .card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 8px 24px rgba(184, 134, 11, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card p { color: var(--text-body); margin-bottom: 12px; }
+        .card strong { color: var(--text-dark); }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .objective-item {
+            background: var(--bg-card);
+            border: 2px solid var(--border-soft);
+            border-right: 5px solid var(--gold);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: start;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .objective-item:hover {
+            border-color: var(--gold);
+            border-right-color: var(--secondary);
+            background: var(--gold-soft);
+        }
+
+        .objective-number {
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--primary) 100%);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 800;
+            flex-shrink: 0;
+            font-size: 1rem;
+            box-shadow: 0 2px 8px rgba(184, 134, 11, 0.3);
+        }
+
+        .objective-item h4 { color: var(--text-dark); font-size: 1.05rem; margin-bottom: 5px; }
+        .objective-item p { color: var(--text-muted); font-size: 0.9rem; }
+
+        .gold-box {
+            background: var(--gold-soft);
+            border: 2px solid var(--gold);
+            border-right-width: 5px;
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin: 20px 0;
+        }
+
+        .gold-box h4 { color: var(--gold-dark); margin-bottom: 8px; font-size: 1.05rem; }
+        .gold-box p { color: var(--text-body); font-size: 0.95rem; }
+
+        .info-box {
+            background: var(--info-bg);
+            border: 2px solid #B8D4DE;
+            border-right-width: 5px;
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin: 20px 0;
+        }
+
+        .info-box h4 { color: #2E6B8A; margin-bottom: 8px; font-size: 1.05rem; }
+        .info-box p { color: #1F4A5E; font-size: 0.95rem; }
+
+        .warning-box {
+            background: var(--warning-bg);
+            border: 2px solid #E5D4B8;
+            border-right-width: 5px;
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin: 20px 0;
+        }
+
+        .warning-box h4 { color: var(--secondary-dark); margin-bottom: 8px; }
+        .warning-box p { color: var(--text-body); font-size: 0.95rem; }
+
+        .success-box {
+            background: var(--success-bg);
+            border: 2px solid #B8D4B5;
+            border-right-width: 5px;
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin: 20px 0;
+        }
+
+        .success-box h4 { color: var(--primary-dark); margin-bottom: 8px; }
+        .success-box p { color: #2D5F3F; font-size: 0.95rem; }
+
+        .danger-box {
+            background: var(--danger-bg);
+            border: 2px solid #E0B8B8;
+            border-right-width: 5px;
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin: 20px 0;
+        }
+
+        .danger-box h4 { color: #8B3A3A; margin-bottom: 8px; }
+        .danger-box p { color: #5C2828; font-size: 0.95rem; }
+
+        .element-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .element-table thead { background: linear-gradient(90deg, var(--gold) 0%, var(--primary) 100%); color: white; }
+        .element-table th { padding: 14px 18px; text-align: right; font-weight: 700; font-size: 1rem; }
+        .element-table td { padding: 14px 18px; border-bottom: 1px solid var(--border-soft); color: var(--text-body); }
+        .element-table tr:last-child td { border-bottom: none; }
+        .element-table tr:hover { background: var(--bg-cream); }
+        .element-table code {
+            background: var(--bg-code);
+            border: 1px solid var(--border);
+            padding: 3px 8px;
+            border-radius: 5px;
+            color: var(--gold-dark);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.88rem;
+            font-weight: 600;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        /* Journey Timeline */
+        .journey-timeline {
+            position: relative;
+            padding-right: 50px;
+            margin: 30px 0;
+        }
+
+        .journey-timeline::before {
+            content: '';
+            position: absolute;
+            right: 18px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--gold) 0%, var(--primary) 50%, var(--secondary) 100%);
+            border-radius: 2px;
+        }
+
+        .journey-item {
+            position: relative;
+            background: var(--bg-card);
+            border: 2px solid var(--border-soft);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .journey-item:hover {
+            border-color: var(--gold);
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.1);
+            transform: translateX(-5px);
+        }
+
+        .journey-item::before {
+            content: '';
+            position: absolute;
+            right: -40px;
+            top: 25px;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
+            border-radius: 50%;
+            border: 3px solid var(--bg-main);
+            box-shadow: 0 2px 8px rgba(184, 134, 11, 0.4);
+        }
+
+        .journey-number {
+            display: inline-block;
+            background: var(--gold-light);
+            color: var(--gold-dark);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
+        .journey-item h4 {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .journey-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .journey-item .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .skill-tag {
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-soft);
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--primary) 100%);
+        }
+
+        .stat-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(184, 134, 11, 0.15);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Evaluation Criteria */
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px;
+            margin: 25px 0;
+        }
+
+        .criteria-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-soft);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .criteria-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .criteria-card .criteria-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .criteria-card h5 {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .criteria-card p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            margin-bottom: 10px;
+        }
+
+        .criteria-card .weight {
+            display: inline-block;
+            background: var(--gold-light);
+            color: var(--gold-dark);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 800;
+        }
+
+        /* Roadmap */
+        .roadmap-container {
+            background: var(--bg-card);
+            border: 2px solid var(--gold);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 25px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .roadmap-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--primary) 50%, var(--secondary) 100%);
+        }
+
+        .roadmap-title {
+            text-align: center;
+            color: var(--gold-dark);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .roadmap-levels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            position: relative;
+        }
+
+        .roadmap-level {
+            background: var(--bg-cream);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .roadmap-level.current {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-soft) 100%);
+            border-color: var(--gold);
+            box-shadow: 0 4px 15px rgba(184, 134, 11, 0.2);
+        }
+
+        .roadmap-level.next {
+            border-color: var(--primary);
+            background: var(--primary-soft);
+        }
+
+        .roadmap-level.future {
+            opacity: 0.7;
+        }
+
+        .roadmap-level .level-number {
+            display: inline-block;
+            background: var(--gold);
+            color: white;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            border-radius: 50%;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .roadmap-level.current .level-number { background: var(--gold-bright); }
+        .roadmap-level.next .level-number { background: var(--primary); }
+        .roadmap-level.future .level-number { background: var(--text-muted); }
+
+        .roadmap-level h5 {
+            color: var(--text-dark);
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .roadmap-level p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .roadmap-level .status {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .roadmap-level.current .status { background: var(--gold); color: white; }
+        .roadmap-level.next .status { background: var(--primary); color: white; }
+        .roadmap-level.future .status { background: var(--border); color: var(--text-muted); }
+
+        /* Graduation Card */
+        .graduation-card {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-soft) 50%, var(--primary-soft) 100%);
+            border: 3px solid var(--gold);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(184, 134, 11, 0.2);
+        }
+
+        .graduation-card::before {
+            content: '🎓';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.08;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .graduation-card h2 {
+            color: var(--gold-dark);
+            font-size: 2rem;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .graduation-card p {
+            color: var(--text-body);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 15px;
+            position: relative;
+        }
+
+        .graduation-card .motto {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--gold-dark);
+            margin-top: 20px;
+            position: relative;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background: var(--bg-card);
+            border: 3px solid var(--success);
+            border-radius: 20px;
+            padding: 35px;
+            margin: 40px 0;
+            box-shadow: 0 8px 24px rgba(91, 140, 90, 0.1);
+        }
+
+        .quiz-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 3px dashed var(--success-bg);
+        }
+
+        .quiz-header-icon {
+            width: 55px; height: 55px;
+            background: linear-gradient(135deg, var(--success) 0%, var(--primary-dark) 100%);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            box-shadow: 0 4px 12px rgba(91, 140, 90, 0.25);
+        }
+
+        .quiz-header h2 { color: var(--primary-dark); font-size: 1.6rem; }
+        .quiz-header p { color: var(--text-muted); font-size: 0.95rem; }
+
+        .question {
+            background: var(--bg-cream);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 22px;
+            margin-bottom: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .question:hover { border-color: var(--gold); background: var(--gold-soft); }
+
+        .question-number {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--primary) 100%);
+            color: white;
+            padding: 4px 14px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 6px rgba(184, 134, 11, 0.3);
+        }
+
+        .question h4 { color: var(--text-dark); font-size: 1.05rem; margin-bottom: 15px; line-height: 1.6; }
+
+        .options { list-style: none; display: grid; gap: 10px; }
+
+        .options li {
+            background: var(--bg-card);
+            border: 2px solid var(--border-soft);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: var(--text-body);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .options li:hover { border-color: var(--gold); background: var(--gold-soft); color: var(--text-dark); }
+
+        .option-letter {
+            width: 28px; height: 28px;
+            background: var(--gold-light);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--gold-dark);
+            flex-shrink: 0;
+        }
+
+        /* Presentation Tips */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px;
+            margin: 25px 0;
+        }
+
+        .tip-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-soft);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tip-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--primary) 100%);
+            border-radius: 12px 12px 0 0;
+        }
+
+        .tip-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.1);
+        }
+
+        .tip-card .tip-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .tip-card h5 {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .tip-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Final Checklist */
+        .final-checklist {
+            background: var(--bg-card);
+            border: 3px solid var(--gold);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 25px 0;
+        }
+
+        .final-checklist h3 {
+            color: var(--gold-dark);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: start;
+            gap: 15px;
+            padding: 15px;
+            border-bottom: 1px dashed var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item:last-child { border-bottom: none; }
+
+        .checklist-item:hover {
+            background: var(--gold-soft);
+            border-radius: 8px;
+        }
+
+        .checklist-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+
+        .checklist-content { flex: 1; }
+
+        .checklist-content strong {
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .checklist-content span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Next Level Preview */
+        .next-level-preview {
+            background: linear-gradient(135deg, var(--info-bg) 0%, var(--bg-cream) 100%);
+            border: 2px solid var(--info);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .next-level-preview h3 {
+            color: #2E6B8A;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .topics-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .topic-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .topic-item:hover {
+            border-color: var(--info);
+            transform: translateX(-5px);
+        }
+
+        .topic-item .topic-icon {
+            font-size: 1.5rem;
+        }
+
+        .topic-item .topic-name {
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        /* Summary */
+        .summary-box {
+            background: linear-gradient(135deg, var(--gold-soft) 0%, var(--bg-soft) 100%);
+            border: 3px solid var(--gold);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 8px 24px rgba(184, 134, 11, 0.1);
+        }
+
+        .summary-box h3 { color: var(--gold-dark); font-size: 1.5rem; margin-bottom: 20px; }
+
+        .summary-list { list-style: none; }
+
+        .summary-list li {
+            padding: 10px 0;
+            padding-right: 35px;
+            position: relative;
+            color: var(--text-body);
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .summary-list li:last-child { border-bottom: none; }
+
+        .summary-list li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: var(--success);
+            font-weight: 900;
+            font-size: 1.3rem;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-soft) 100%);
+            border-top: 3px solid var(--gold);
+            padding: 40px 0;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        footer .logo { justify-content: center; margin-bottom: 20px; }
+        footer p { color: var(--text-muted); margin-bottom: 8px; }
+        footer .motto { color: var(--gold-dark); font-weight: 700; font-size: 1.1rem; margin-top: 15px; }
+
+        code.inline {
+            background: var(--gold-light);
+            border: 1px solid var(--gold);
+            padding: 2px 8px;
+            border-radius: 5px;
+            color: var(--gold-dark);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.88rem;
+            font-weight: 600;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        @media print {
+            @page { size: A4; margin: 1.5cm; }
+            body { background: white; font-size: 11pt; line-height: 1.5; }
+            header { position: static; box-shadow: none; }
+            .hero, section, .card, .question { page-break-inside: avoid; }
+            h1, h2, h3, h4 { page-break-after: avoid; }
+            .journey-timeline { padding-right: 30px; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .section-title { font-size: 1.5rem; }
+            .objectives-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .roadmap-levels { grid-template-columns: repeat(2, 1fr); }
+            .journey-timeline { padding-right: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">S</div>
+                    <span>Sunshine T Academy</span>
+                </div>
+                <div class="lecture-badge">🎓 Frontend Level 1 • المحاضرة الرابعة عشرة — التخرج</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section class="hero">
+            <span class="graduation-emoji">🎓</span>
+            <span class="hero-tag">LECTURE 14 — FINAL</span>
+            <h1>Final Project <span>+ Review</span></h1>
+            <p>مبروك! وصلت لآخر محاضرة في المستوى الأول. النهاردة هنراجع كل اللي اتعلمناه، هنعرض المشاريع النهائية، و هنستعد لرحلة جديدة في المستوى الثاني.</p>
+        </section>
+
+        <!-- ========== Opening ========== -->
+        <section>
+            <h2 class="section-title">
+                <div class="title-icon">🎉</div>
+                <span>أهلاً بيك في يوم التخرج</span>
+            </h2>
+
+            <div class="graduation-card">
+                <h2>🏆 مبروك وصولك لهنا!</h2>
+                <p>لقد أتممت <strong>13 محاضرة</strong> من التعلم والعمل الجاد. من أول سطر HTML كتبته، لحد ما وصلت لبناء مواقع كاملة متجاوبة واحترافية.</p>
+                <p>النهاردة مش مجرد محاضرة — النهاردة يوم احتفال بإنجازك، ومراجعة لرحلتك، وتجهيز لخطوتك الجاية.</p>
+                <div class="motto">☀️ "بنحوّل الحلم لكود"</div>
+            </div>
+
+            <div class="info-box">
+                <h4>🎯 أهداف محاضرة النهاردة</h4>
+                <p>1. <strong>مراجعة شاملة</strong> لكل اللي اتعلمناه في 13 محاضرة.</p>
+                <p>2. <strong>عرض المشاريع النهائية</strong> من كل طالب.</p>
+                <p>3. <strong>تقييم وتغذية راجعة</strong> بناءً على معايير واضحة.</p>
+                <p>4. <strong>الاستعداد للمستوى الثاني</strong> (JavaScript).</p>
+            </div>
+        </section>
+
+        <!-- ========== Journey Review ========== -->
+        <section>
+            <h2 class="section-title">
+                <div class="title-icon">🗺️</div>
+                <span>مراجعة الرحلة — 13 محاضرة في دقيقة</span>
+            </h2>
+
+            <div class="card">
+                <h3>📚 الرحلة اللي قطعناها</h3>
+                <p>خلينا نراجع مع بعض كل محطة من محطات الرحلة. كل محاضرة بنت على اللي قبلها، ووصلنا للمكان اللي إحنا فيه دلوقتي.</p>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">13</div>
+                    <div class="stat-label">محاضرة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">مهارة مكتسبة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">14</div>
+                    <div class="stat-label">مشروع تطبيقي</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">إمكانيات قادمة</div>
+                </div>
+            </div>
+
+            <!-- Journey Timeline -->
+            <div class="journey-timeline">
+                <div class="journey-item">
+                    <span class="journey-number">المحاضرة 01</span>
+                    <h4>🌐 مقدمة Web Development + HTML</h4>
+                    <p>فهمنا الفرق بين Frontend و Backend، وكتبنا أول سطر HTML في حياتنا.</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">Hello World</span>
+                        <span class="skill-tag">Web Structure</span>
+                    </div>
+                </div>
+
+                <div class="journey-item">
+                    <span class="journey-number">المحاضرة 02</span>
+                    <h4>📝 HTML Elements & Content</h4>
+                    <p>تعلمنا العناصر الأساسية: Headings, Paragraphs, Lists, Links, Images.</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Elements</span>
+                        <span class="skill-tag">Attributes</span>
+                        <span class="skill-tag">File Organization</span>
+                    </div>
+                </div>
+
+                <div class="journey-item">
+                    <span class="journey-number">المحاضرة 03</span>
+                    <h4>🧠 Semantic HTML</h4>
+                    <p>فهمنا أهمية العناصر الدلالية و Accessibility و SEO.</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Semantic</span>
+                        <span class="skill-tag">Accessibility</span>
+                        <span class="skill-tag">SEO</span>
+                    </div>
+                </div>
+
+                <div class="journey-item">
+                    <span class="journey-number">المحاضرة 04</span>
+                    <h4>📊 Tables & Forms</h4>
+                    <p>بنينا جداول ونماذج تفاعلية مع Validation.</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Tables</span>
+                        <span class="skill-tag">Forms</span>
+                        <span class="skill-tag">Validation</span>
+                    </div>
+                </div>
+
+                <div class="journey-item">
+                    <span class="journey-number">المحاضرة 05</span>
+                    <h4>🎬 HTML Media & Page Setup</h4>
+                    <p>أضفنا Audio, Video, iframe، وجهزنا الصفحة بـ Meta Tags و Favicon.</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Media</span>
+                        <span class="skill-tag">Meta Tags</span>
+                        <span class="skill-tag">Open Graph</span>
+                    </div>
+                </div>
+
+                <div class="journey-item">
+                    <span class="journey-number">المحاضرة 06</span>
+                    <h4>🎨 CSS Fundamentals</h4>
+                    <p>دخلنا عالم CSS! Selectors, Colors, Backgrounds, Units.</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Selectors</span>
+                        <span class="skill-tag">Colors</span>
+                        <span class="skill-tag">Specificity</span>
+                    </div>
+                </div>
+
+                <div class="journey-item">
+                    <span class="journey-number">المحاضرة 07</span>
+                    <h4>🔤 Typography + Box Model</h4>
+                    <p>تعلمنا التحكم في الخطوط، وفهمنا أهم مفهوم في CSS: Box Model.</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Typography</span>
+                        <span class="skill-tag">Box Model</span>
+                        <span class="skill-tag">Google Fonts</span>
+                    </div>
+                </div>
+
+                <div class="journey-item">
+                    <span class="journey-number">المحاضرة 08</span>
+                    <h4>📦 Display + Position</h4>
+                    <p>تحكمنا في طريقة عرض العناصر ومواقعها بدقة.</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Display</span>
+                        <span class="skill-tag">Position</span>
+                        <span class="skill-tag">Z-index</span>
+                    </div>
+                </div>
+
+                <div class="journey-item">
+                    <span class="journey-number">المحاضرة 09</span>
+                    <h4>🚂 Flexbox</h4>
+                    <p>تعلمنا أقوى أداة Layout أحادية البعد.</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Flexbox</span>
+                        <span class="skill-tag">justify-content</span>
+                        <span class="skill-tag">align-items</span>
+                    </div>
+                </div>
+
+                <div class="journey-item">
+                    <span class="journey-number">المحاضرة 10</span>
+                    <h4>🔲 CSS Grid</h4>
+                    <p>اكتشفنا نظام Layout ثنائي الأبعاد لبناء Layoutات معقدة.</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Grid</span>
+                        <span class="skill-tag">fr Unit</span>
+                        <span class="skill-tag">Grid Areas</span>
+                    </div>
+                </div>
+
+                <div class="journey-item">
+                    <span class="journey-number">المحاضرة 11</span>
+                    <h4>📱 Responsive Web Design</h4>
+                    <p>خلينا الموقع يتكيف مع كل الشاشات — Mobile-first + clamp().</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Responsive</span>
+                        <span class="skill-tag">Media Queries</span>
+                        <span class="skill-tag">clamp()</span>
+                    </div>
+                </div>
+
+                <div class="journey-item">
+                    <span class="journey-number">المحاضرة 12</span>
+                    <h4>✨ Advanced CSS & Effects</h4>
+                    <p>أضفنا اللمسات الاحترافية: Variables, Shadows, Gradients, Transitions, Transforms.</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Variables</span>
+                        <span class="skill-tag">Shadows</span>
+                        <span class="skill-tag">Transitions</span>
+                        <span class="skill-tag">Transforms</span>
+                    </div>
+                </div>
+
+                <div class="journey-item">
+                    <span class="journey-number">المحاضرة 13</span>
+                    <h4>🏗️ مشروع تطبيقي شامل</h4>
+                    <p>جمعنا كل المهارات وبنينا Portfolio Website كامل من الصفر.</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Portfolio</span>
+                        <span class="skill-tag">Full Project</span>
+                        <span class="skill-tag">Best Practices</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== Skills Acquired ========== -->
+        <section>
+            <h2 class="section-title">
+                <div class="title-icon">🎓</div>
+                <span>المهارات اللي اكتسبتها</span>
+            </h2>
+
+            <div class="card">
+                <h3>🏆 ماذا تستطيع الآن؟</h3>
+                <p>بعد 13 محاضرة من التعلم والتطبيق، دلوقتي عندك مجموعة مهارات قوية تخليك تبني مواقع ويب احترافية.</p>
+            </div>
+
+            <div class="objectives-grid">
+                <div class="objective-item">
+                    <div class="objective-number">✓</div>
+                    <div>
+                        <h4>بناء هيكل HTML</h4>
+                        <p>تقدر تبني أي صفحة HTML منظمة ودلالية</p>
+                    </div>
+                </div>
+                <div class="objective-item">
+                    <div class="objective-number">✓</div>
+                    <div>
+                        <h4>تصميم بـ CSS</h4>
+                        <p>تتحكم في الألوان، الخطوط، المسافات، الظلال</p>
+                    </div>
+                </div>
+                <div class="objective-item">
+                    <div class="objective-number">✓</div>
+                    <div>
+                        <h4>Layout احترافي</h4>
+                        <p>Flexbox + Grid لبناء أي تخطيط</p>
+                    </div>
+                </div>
+                <div class="objective-item">
+                    <div class="objective-number">✓</div>
+                    <div>
+                        <h4>Responsive Design</h4>
+                        <p>مواقع تعمل على كل الأجهزة</p>
+                    </div>
+                </div>
+                <div class="objective-item">
+                    <div class="objective-number">✓</div>
+                    <div>
+                        <h4>Forms & Tables</h4>
+                        <p>نماذج تفاعلية وجداول بيانات</p>
+                    </div>
+                </div>
+                <div class="objective-item">
+                    <div class="objective-number">✓</div>
+                    <div>
+                        <h4>Animations</h4>
+                        <p>Transitions و Hover effects جذابة</p>
+                    </div>
+                </div>
+                <div class="objective-item">
+                    <div class="objective-number">✓</div>
+                    <div>
+                        <h4>SEO & Accessibility</h4>
+                        <p>مواقع صديقة لمحركات البحث ومتاحة للجميع</p>
+                    </div>
+                </div>
+                <div class="objective-item">
+                    <div class="objective-number">✓</div>
+                    <div>
+                        <h4>Code Organization</h4>
+                        <p>تنظيم ملفات وكود احترافي</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== Final Project Evaluation ========== -->
+        <section>
+            <h2 class="section-title">
+                <div class="title-icon">⚖️</div>
+                <span>معايير تقييم المشروع النهائي</span>
+            </h2>
+
+            <div class="card">
+                <h3>📋 إزاي هنقيّم مشروعك؟</h3>
+                <p>المشروع النهائي هيتقيّم بناءً على المعايير دي. كل معيار ليه وزن محدد في التقييم النهائي.</p>
+            </div>
+
+            <div class="criteria-grid">
+                <div class="criteria-card">
+                    <div class="criteria-icon">🏗️</div>
+                    <h5>HTML Semantic</h5>
+                    <p>استخدام العناصر الدلالية بشكل صحيح، هيكل منظم، Meta Tags كاملة</p>
+                    <span class="weight">15%</span>
+                </div>
+                <div class="criteria-card">
+                    <div class="criteria-icon">🎨</div>
+                    <h5>التصميم والجمال</h5>
+                    <p>الألوان، الخطوط، المسافات، التناغم البصري، الإبداع</p>
+                    <span class="weight">20%</span>
+                </div>
+                <div class="criteria-card">
+                    <div class="criteria-icon">📐</div>
+                    <h5>Layout (Flexbox + Grid)</h5>
+                    <p>استخدام صحيح لـ Flexbox و Grid في الأماكن المناسبة</p>
+                    <span class="weight">20%</span>
+                </div>
+                <div class="criteria-card">
+                    <div class="criteria-icon">📱</div>
+                    <h5>Responsive Design</h5>
+                    <p>الموقع يعمل بشكل ممتاز على Mobile + Tablet + Desktop</p>
+                    <span class="weight">20%</span>
+                </div>
+                <div class="criteria-card">
+                    <div class="criteria-icon">✨</div>
+                    <h5>Effects & Interactions</h5>
+                    <p>Transitions, Hover effects, Shadows, Gradients</p>
+                    <span class="weight">10%</span>
+                </div>
+                <div class="criteria-card">
+                    <div class="criteria-icon">📝</div>
+                    <h5>جودة الكود</h5>
+                    <p>تنظيم، Comments، CSS Variables، أسماء واضحة</p>
+                    <span class="weight">10%</span>
+                </div>
+                <div class="criteria-card">
+                    <div class="criteria-icon">♿</div>
+                    <h5>Accessibility</h5>
+                    <p>Alt tags, Labels, Semantic structure, Keyboard navigation</p>
+                    <span class="weight">5%</span>
+                </div>
+            </div>
+
+            <div class="gold-box">
+                <h4>💎 Bonus Points — نقاط إضافية</h4>
+                <p>لو عملت أي حاجة من دول، هتاخد نقاط إضافية فوق التقييم:</p>
+                <p>• Dark Mode (+5) • Custom Animations (+5) • Published Online (+10)</p>
+                <p>• Multiple Pages (+5) • Advanced Interactions (+5) • Performance Optimization (+5)</p>
+            </div>
+        </section>
+
+        <!-- ========== Presentation Tips ========== -->
+        <section>
+            <h2 class="section-title">
+                <div class="title-icon">🎤</div>
+                <span>نصائح لعرض المشروع</span>
+            </h2>
+
+            <div class="card">
+                <h3>🎤 إزاي تعرض مشروعك بشكل احترافي؟</h3>
+                <p>عرض المشروع مهارة مهمة زي بنائه. خلينا نتعلم إزاي نعرض شغلنا بثقة واحترافية.</p>
+            </div>
+
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">🎯</div>
+                    <h5>ابدأ بالهدف</h5>
+                    <p>اشرح فكرة المشروع والهدف منه في 30 ثانية</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🖥️</div>
+                    <h5>اعرض على أجهزة مختلفة</h5>
+                    <p>وري الموقع على موبايل وتابلت وديسكتوب</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">💻</div>
+                    <h5>افتح DevTools</h5>
+                    <p>وري جزء من الكود واشرح قرارك التقني</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🎨</div>
+                    <h5>اشرح التصميم</h5>
+                    <p>ليه اخترت الألوان دي؟ ليه الـ Layout كده؟</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">⚡</div>
+                    <h5>اذكر التحديات</h5>
+                    <p>إيه أصعب حاجة واجهتك وإزاي حلها؟</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🚀</div>
+                    <h5>تحدث عن المستقبل</h5>
+                    <p>إيه اللي عايز تضيفه لو عندك وقت أكتر؟</p>
+                </div>
+            </div>
+
+            <div class="success-box">
+                <h4>✨ هيكل العرض المثالي (5 دقائق)</h4>
+                <p>1. <strong>المقدمة</strong> (30 ثانية): اسمك + فكرة المشروع</p>
+                <p>2. <strong>العرض الحي</strong> (2 دقيقة): شغل الموقع على الأجهزة المختلفة</p>
+                <p>3. <strong>الكود</strong> (1 دقيقة): افتح DevTools ووري جزء مميز</p>
+                <p>4. <strong>التحديات</strong> (30 ثانية): إيه اللي تعلمته من الصعوبات</p>
+                <p>5. <strong>الختام</strong> (30 ثانية): شكر + أي سؤال</p>
+            </div>
+        </section>
+
+        <!-- ========== Final Checklist ========== -->
+        <section>
+            <h2 class="section-title">
+                <div class="title-icon">✅</div>
+                <span>Checklist النهائي قبل العرض</span>
+            </h2>
+
+            <div class="final-checklist">
+                <h3>📋 تأكد من كل نقطة قبل ما تعرض مشروعك</h3>
+
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <div class="checklist-content">
+                        <strong>الملفات منظمة</strong>
+                        <span>index.html + css/style.css + images/ — كل حاجة في مكانها</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <div class="checklist-content">
+                        <strong>HTML Semantic</strong>
+                        <span>header, nav, main, section, footer — كل عنصر في مكانه الصحيح</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <div class="checklist-content">
+                        <strong>Meta Tags كاملة</strong>
+                        <span>charset, viewport, description, OG tags, title, favicon</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <div class="checklist-content">
+                        <strong>CSS Variables</strong>
+                        <span>:root فيه كل الألوان والقيم الأساسية</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <div class="checklist-content">
+                        <strong>Responsive كامل</strong>
+                        <span>اختبرت الموقع على 3 مقاسات: 375px, 768px, 1440px</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <div class="checklist-content">
+                        <strong>Flexbox + Grid</strong>
+                        <span>استخدمت الاتنين في الأماكن الصحيحة</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <div class="checklist-content">
+                        <strong>Hover Effects</strong>
+                        <span>كل عنصر تفاعلي ليه hover effect سلس</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <div class="checklist-content">
+                        <strong>Forms مع Labels</strong>
+                        <span>كل input ليه label + for = id + validation</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <div class="checklist-content">
+                        <strong>Images محسّنة</strong>
+                        <span>كل الصور لها alt + max-width: 100% + مضغوطة</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <div class="checklist-content">
+                        <strong>Comments في الكود</strong>
+                        <span>كل section عليه comment يوضحه</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <div class="checklist-content">
+                        <strong>اختبار على متصفحات مختلفة</strong>
+                        <span>Chrome + Firefox + Edge — كلهم شغالين</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <div class="checklist-content">
+                        <strong>جاهز للعرض</strong>
+                        <span>جهزت كلامي + الموقع شغال + متحمس!</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== Roadmap to Next Level ========== -->
+        <section>
+            <h2 class="section-title">
+                <div class="title-icon">🚀</div>
+                <span>خريطة الطريق — المستوى الثاني</span>
+            </h2>
+
+            <div class="card">
+                <h3>🗺️ الرحلة الكاملة Full Stack</h3>
+                <p>المستوى الأول كان الأساس. دلوقتي عندك قاعدة قوية تنطلق بيها للمستويات الجاية. خلينا نشوف الخريطة الكاملة:</p>
+            </div>
+
+            <div class="roadmap-container">
+                <h3 class="roadmap-title">🏆 Full Stack Development Roadmap</h3>
+                <div class="roadmap-levels">
+                    <div class="roadmap-level current">
+                        <div class="level-number">1</div>
+                        <h5>HTML + CSS</h5>
+                        <p>Frontend Foundations</p>
+                        <span class="status">✓ مكتمل</span>
+                    </div>
+                    <div class="roadmap-level next">
+                        <div class="level-number">2</div>
+                        <h5>JavaScript</h5>
+                        <p>لغة البرمجة</p>
+                        <span class="status">← التالي</span>
+                    </div>
+                    <div class="roadmap-level future">
+                        <div class="level-number">3</div>
+                        <h5>React</h5>
+                        <p>Frontend Framework</p>
+                        <span class="status">قريباً</span>
+                    </div>
+                    <div class="roadmap-level future">
+                        <div class="level-number">4</div>
+                        <h5>Backend</h5>
+                        <p>Node.js / Express</p>
+                        <span class="status">قريباً</span>
+                    </div>
+                    <div class="roadmap-level future">
+                        <div class="level-number">5</div>
+                        <h5>Database + APIs</h5>
+                        <p>MongoDB / REST</p>
+                        <span class="status">قريباً</span>
+                    </div>
+                    <div class="roadmap-level future">
+                        <div class="level-number">6</div>
+                        <h5>Full Stack</h5>
+                        <p>مشروع التخرج</p>
+                        <span class="status">الهدف النهائي</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next Level Preview -->
+            <div class="next-level-preview">
+                <h3>🎯 ماذا ستتعلم في المستوى الثاني — JavaScript؟</h3>
+                <p style="color: var(--text-body); text-align: center;">JavaScript هي اللغة اللي بتخلي الموقع <strong>حيّ وتفاعلي</strong>. هتتعلم:</p>
+                
+                <div class="topics-list">
+                    <div class="topic-item">
+                        <span class="topic-icon">📦</span>
+                        <span class="topic-name">Variables & Data Types</span>
+                    </div>
+                    <div class="topic-item">
+                        <span class="topic-icon">🔀</span>
+                        <span class="topic-name">Conditions & Loops</span>
+                    </div>
+                    <div class="topic-item">
+                        <span class="topic-icon">⚡</span>
+                        <span class="topic-name">Functions</span>
+                    </div>
+                    <div class="topic-item">
+                        <span class="topic-icon">📋</span>
+                        <span class="topic-name">Arrays & Objects</span>
+                    </div>
+                    <div class="topic-item">
+                        <span class="topic-icon">🎯</span>
+                        <span class="topic-name">DOM Manipulation</span>
+                    </div>
+                    <div class="topic-item">
+                        <span class="topic-icon">🖱️</span>
+                        <span class="topic-name">Events & Listeners</span>
+                    </div>
+                    <div class="topic-item">
+                        <span class="topic-icon">🔄</span>
+                        <span class="topic-name">Async JavaScript</span>
+                    </div>
+                    <div class="topic-item">
+                        <span class="topic-icon">🌐</span>
+                        <span class="topic-name">Fetch API & JSON</span>
+                    </div>
+                    <div class="topic-item">
+                        <span class="topic-icon">🎨</span>
+                        <span class="topic-name">ES6+ Modern JS</span>
+                    </div>
+                    <div class="topic-item">
+                        <span class="topic-icon">🐛</span>
+                        <span class="topic-name">Debugging</span>
+                    </div>
+                    <div class="topic-item">
+                        <span class="topic-icon">📁</span>
+                        <span class="topic-name">Modules</span>
+                    </div>
+                    <div class="topic-item">
+                        <span class="topic-icon">🚀</span>
+                        <span class="topic-name">Projects</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>💡 نصيحة مهمة للمستوى الثاني</h4>
+                <p>JavaScript مختلف عن HTML و CSS. ده مش بس "تنسيق" — ده <strong>منطق برمجي</strong>. هتحتاج:</p>
+                <p>• <strong>تفكير منطقي:</strong> تحل مسائل برمجية.</p>
+                <p>• <strong>صبر:</strong> الأخطاء هتكثر في البداية — ده طبيعي.</p>
+                <p>• <strong>تمرين يومي:</strong> اكتب كود كل يوم حتى لو سطر واحد.</p>
+                <p>• <strong>مشاريع صغيرة:</strong> ابدأ بـ Calculator، Todo List، Quiz Game.</p>
+            </div>
+        </section>
+
+        <!-- ========== Career Advice ========== -->
+        <section>
+            <h2 class="section-title">
+                <div class="title-icon">💼</div>
+                <span>نصائح للمسيرة المهنية</span>
+            </h2>
+
+            <div class="card">
+                <h3>💎 من المحترف للمحترف</h3>
+                <p>بعد ما تخلص المستوى الثاني (JavaScript)، هتبقى عندك أساس قوي تخليك تبدأ تتقدم على وظائف Junior Frontend Developer. خلينا نشوف إزاي:</p>
+            </div>
+
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">🐙</div>
+                    <h5>تعلم Git & GitHub</h5>
+                    <p>ارفع مشاريعك على GitHub — ده الـ Portfolio الحقيقي للمطور</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🌐</div>
+                    <h5>انشر مواقعك</h5>
+                    <p>استخدم GitHub Pages أو Netlify لنشر مواقعك مجاناً</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">📚</div>
+                    <h5>اقرأ Documentation</h5>
+                    <p>MDN Web Docs هو أفضل صديق ليك — مرجع HTML/CSS/JS الرسمي</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🤝</div>
+                    <h5>انضم للمجتمعات</h5>
+                    <p>مجاعات المطورين على Discord, Reddit, Twitter</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🎯</div>
+                    <h5>ابني مشاريع حقيقية</h5>
+                    <p>مش بس كورسات — اعمل مشاريع تحل مشاكل حقيقية</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">📝</div>
+                    <h5>اكتب عن اللي بتتعلمه</h5>
+                    <p>التعليم أفضل طريقة للتعلم — ابدأ مدونة تقنية</p>
+                </div>
+            </div>
+
+            <div class="gold-box">
+                <h4>🌟 نصيحة ذهبية</h4>
+                <p>"المطور الناجح مش اللي بيعرف كل حاجة — ده اللي بيعرف إزاي يتعلم أي حاجة بسرعة." التعلم المستمر هو سر النجاح في مجالنا.</p>
+            </div>
+        </section>
+
+        <!-- ========== Final Review Quiz ========== -->
+        <section>
+            <h2 class="section-title">
+                <div class="title-icon">🏆</div>
+                <span>اختبار شامل — هل أنت جاهز؟</span>
+            </h2>
+
+            <div class="quiz-section">
+                <div class="quiz-header">
+                    <div class="quiz-header-icon">🏆</div>
+                    <div>
+                        <h2>اختبار شامل — 10 أسئلة من كل المحاضرات</h2>
+                        <p>اختبر نفسك — لو جاوبت 8/10 فأكثر، أنت جاهز للمستوى الثاني!</p>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">سؤال 1</span>
+                    <h4>ما هو العنصر Semantic اللي بيحتوي على المحتوى الرئيسي للصفحة (مرة واحدة فقط)؟</h4>
+                    <ul class="options">
+                        <li><span class="option-letter">أ</span> &lt;div&gt;</li>
+                        <li><span class="option-letter">ب</span> &lt;main&gt;</li>
+                        <li><span class="option-letter">ج</span> &lt;section&gt;</li>
+                        <li><span class="option-letter">د</span> &lt;article&gt;</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">سؤال 2</span>
+                    <h4>ما هو الفرق بين Class و ID؟</h4>
+                    <ul class="options">
+                        <li><span class="option-letter">أ</span> مفيش فرق</li>
+                        <li><span class="option-letter">ب</span> Class فريد، ID يتكرر</li>
+                        <li><span class="option-letter">ج</span> Class يتكرر، ID فريد</li>
+                        <li><span class="option-letter">د</span> Class للنصوص، ID للألوان</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">سؤال 3</span>
+                    <h4>ما هو Box Model بالترتيب من الداخل للخارج؟</h4>
+                    <ul class="options">
+                        <li><span class="option-letter">أ</span> Margin, Border, Padding, Content</li>
+                        <li><span class="option-letter">ب</span> Content, Padding, Border, Margin</li>
+                        <li><span class="option-letter">ج</span> Content, Border, Padding, Margin</li>
+                        <li><span class="option-letter">د</span> Padding, Content, Border, Margin</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">سؤال 4</span>
+                    <h4>ما هو value اللي بيخلي العناصر تتوزع على السطر مع مسافات متساوية؟</h4>
+                    <ul class="options">
+                        <li><span class="option-letter">أ</span> justify-content: center</li>
+                        <li><span class="option-letter">ب</span> justify-content: space-between</li>
+                        <li><span class="option-letter">ج</span> align-items: center</li>
+                        <li><span class="option-letter">د</span> flex-direction: row</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">سؤال 5</span>
+                    <h4>ما هي وحدة fr في Grid؟</h4>
+                    <ul class="options">
+                        <li><span class="option-letter">أ</span> fixed ratio</li>
+                        <li><span class="option-letter">ب</span> fraction — جزء من المساحة الفاضية</li>
+                        <li><span class="option-letter">ج</span> frame rate</li>
+                        <li><span class="option-letter">د</span> full row</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">سؤال 6</span>
+                    <h4>ما هو clamp()؟</h4>
+                    <ul class="options">
+                        <li><span class="option-letter">أ</span> دالة لتحديد قيمة ثابتة</li>
+                        <li><span class="option-letter">ب</span> دالة لقيمة مرنة بين حد أدنى وأقصى</li>
+                        <li><span class="option-letter">ج</span> دالة لإخفاء العناصر</li>
+                        <li><span class="option-letter">د</span> دالة لتكبير العناصر</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">سؤال 7</span>
+                    <h4>ما هو الـ syntax الصحيح لتعريف CSS Variable؟</h4>
+                    <ul class="options">
+                        <li><span class="option-letter">أ</span> $color: red;</li>
+                        <li><span class="option-letter">ب</span> @color: red;</li>
+                        <li><span class="option-letter">ج</span> --color: red;</li>
+                        <li><span class="option-letter">د</span> var-color: red;</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">سؤال 8</span>
+                    <h4>ما هو property اللي بيخلي الحركة سلسة؟</h4>
+                    <ul class="options">
+                        <li><span class="option-letter">أ</span> animation</li>
+                        <li><span class="option-letter">ب</span> transition</li>
+                        <li><span class="option-letter">ج</span> transform</li>
+                        <li><span class="option-letter">د</span> motion</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">سؤال 9</span>
+                    <h4>في Mobile-first approach، أي media query نستخدم؟</h4>
+                    <ul class="options">
+                        <li><span class="option-letter">أ</span> max-width</li>
+                        <li><span class="option-letter">ب</span> min-width</li>
+                        <li><span class="option-letter">ج</span> exact-width</li>
+                        <li><span class="option-letter">د</span> device-width</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <span class="question-number">سؤال 10</span>
+                    <h4>ما هو أفضل طريقة لتوسيط عنصر أفقياً ورأسياً؟</h4>
+                    <ul class="options">
+                        <li><span class="option-letter">أ</span> margin: auto</li>
+                        <li><span class="option-letter">ب</span> display: flex + justify-content: center + align-items: center</li>
+                        <li><span class="option-letter">ج</span> text-align: center + vertical-align: middle</li>
+                        <li><span class="option-letter">د</span> position: absolute + top: 50% + left: 50%</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== Summary ========== -->
+        <section>
+            <div class="summary-box">
+                <h3>📌 ملخص الرحلة — ما تعلمته في المستوى الأول</h3>
+                <ul class="summary-list">
+                    <li>HTML = هيكل الصفحة (العظام)</li>
+                    <li>Semantic HTML = هيكل ذو معنى (لـ SEO و Accessibility)</li>
+                    <li>Forms + Tables = تفاعل مع المستخدم</li>
+                    <li>Media + Meta = صفحة متكاملة واحترافية</li>
+                    <li>CSS = تصميم الصفحة (الملابس والديكور)</li>
+                    <li>Box Model = أساس كل تصميم في CSS</li>
+                    <li>Display + Position = التحكم في العرض والموقع</li>
+                    <li>Flexbox = Layout أحادي البعد (قوي وسهل)</li>
+                    <li>Grid = Layout ثنائي البعد (للتخطيطات المعقدة)</li>
+                    <li>Responsive = موقع واحد يعمل على كل الأجهزة</li>
+                    <li>Advanced CSS = اللمسات الاحترافية (Variables, Shadows, Transitions)</li>
+                    <li>Projects = التطبيق العملي هو أفضل طريقة للتعلم</li>
+                    <li>Best Practices = الكود النظيف = المطور المحترف</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ========== Graduation Message ========== -->
+        <section>
+            <div class="graduation-card">
+                <span style="font-size: 5rem; display: block; margin-bottom: 20px; position: relative;">🎓</span>
+                <h2>مبروك التخرج من المستوى الأول!</h2>
+                <p>أنت دلوقتي Frontend Developer مبتدئ — عندك أساس قوي في HTML و CSS. لكن دي مجرد <strong>بداية الرحلة</strong>.</p>
+                <p>اللي اتعلمته هنا هو الأساس اللي هتبني عليه كل حاجة جاية. JavaScript, React, Backend — كلها هتبقى أسهل عليك لأن عندك foundation قوي.</p>
+                <p style="margin-top: 20px;">استمر في التعلم، استمر في البناء، واستمر في الحلم.</p>
+                <div class="motto">☀️ "بنحوّل الحلم لكود"</div>
+                <p style="margin-top: 20px; font-size: 0.95rem; color: var(--text-muted); position: relative;">— مجلس خبراء Sunshine T Academy</p>
+            </div>
+        </section>
+
+        <!-- ========== Final Homework ========== -->
+        <section>
+            <h2 class="section-title">
+                <div class="title-icon">🎯</div>
+                <span>المهام النهائية</span>
+            </h2>
+
+            <div class="card">
+                <h3>📋 المطلوب منك بعد المحاضرة</h3>
+                <p>عشان تخرج من المستوى الأول بشكل رسمي، لازم تعمل الحاجات دي:</p>
+            </div>
+
+            <div class="final-checklist">
+                <h3>🎯 المهام النهائية للتخرج</h3>
+
+                <div class="checklist-item">
+                    <div class="checklist-icon">1</div>
+                    <div class="checklist-content">
+                        <strong>عرض المشروع النهائي</strong>
+                        <span>اعرض مشروعك على الزملاء في 5 دقائق حسب الهيكل اللي اتعلمناه</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">2</div>
+                    <div class="checklist-content">
+                        <strong>اجتز الاختبار الشامل</strong>
+                        <span>جاوب على الأسئلة الـ 10 وحقق 8/10 على الأقل</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">3</div>
+                    <div class="checklist-content">
+                        <strong>سلّم المشروع النهائي</strong>
+                        <span>ارفع المشروع على GitHub أو سلّمه للمحاضر</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">4</div>
+                    <div class="checklist-content">
+                        <strong>اكتب Reflection</strong>
+                        <span>صفحة بسيطة فيها: إيه اللي تعلمته؟ إيه أصعب حاجة؟ إيه اللي عايز تتعلمه بعدين؟</span>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-icon">5</div>
+                    <div class="checklist-content">
+                        <strong>جهّز للمستوى الثاني</strong>
+                        <span>راجع أساسيات HTML + CSS، وجهّز نفسك لرحلة JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">S</div>
+                <span>Sunshine T Academy</span>
+            </div>
+            <p>Frontend Level 1 — HTML + CSS</p>
+            <p>🎓 مبروك التخرج من المستوى الأول!</p>
+            <p class="motto">☀️ بنحوّل الحلم لكود — ونراك في المستوى الثاني</p>
+        </div>
+    </footer>
+
+</body>
+</html>
